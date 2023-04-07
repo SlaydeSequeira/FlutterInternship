@@ -168,7 +168,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               ExpansionPanelList.radio(
-                initialOpenPanelValue: 0,
+                initialOpenPanelValue: 1,
                 children: [
                   ExpansionPanelRadio(
                     value: 0,
@@ -181,19 +181,19 @@ class MyApp extends StatelessWidget {
                       children: [
                         Card(
                           child: ListTile(
-                            title: Text('Card 1'),
+                            title: Text('Key Fact 1'),
                             subtitle: Text('Subtitle 1'),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text('Card 2'),
+                            title: Text('Key Fact 2'),
                             subtitle: Text('Subtitle 2'),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text('Card 3'),
+                            title: Text('Key Fact 3'),
                             subtitle: Text('Subtitle 3'),
                           ),
                         ),
@@ -209,25 +209,121 @@ class MyApp extends StatelessWidget {
                     },
                     body: Column(
                       children: [
-                        Card(
-                          child: ListTile(
-                            title: Text('Listed for \$1,549,586'),
-                            subtitle: Text('MSI#: E5579076'),
+                    Card(
+                    child: Column(
+                    children: [
+                      Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'List 08.05.2022',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Card(
-                          child: ListTile(
-                            title: Text('Listed for \$1,549,586'),
-                            subtitle: Text('MSI#: E5579076'),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(4),
                           ),
-                        ),
-                        Card(
-                          child: ListTile(
-                            title: Text('Listed for \$1,549,586'),
-                            subtitle: Text('MSI#: E5579076'),
+                          child: Text(
+                            'Sold',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text('MSI#: E5579076'),
+                      subtitle: Text('Sold for \$1,549,586'),
+                    ),
+                    ],
+                  ),
+        ),
+
+        Card(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'List 08.05.2022',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      'Sold',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              ListTile(
+                title: Text('MSI#: E5579076'),
+                subtitle: Text('Sold for \$1,549,586'),
+              ),
+            ],
+          ),
+        ),
+
+        Card(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'List 08.05.2022',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      'Sold',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              ListTile(
+                title: Text('MSI#: E5579076'),
+                subtitle: Text('Sold for \$1,549,586'),
+              ),
+            ],
+          ),
+        ),
+
+        ],
                     ),
                   ),
                   ExpansionPanelRadio(
@@ -241,19 +337,19 @@ class MyApp extends StatelessWidget {
                       children: [
                         Card(
                           child: ListTile(
-                            title: Text('Card 1'),
+                            title: Text('Demo 1'),
                             subtitle: Text('Subtitle 1'),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text('Card 2'),
+                            title: Text('Demo 2'),
                             subtitle: Text('Subtitle 2'),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text('Card 3'),
+                            title: Text('Demo 3'),
                             subtitle: Text('Subtitle 3'),
                           ),
                         ),
@@ -271,19 +367,19 @@ class MyApp extends StatelessWidget {
                       children: [
                         Card(
                           child: ListTile(
-                            title: Text('Card 1'),
+                            title: Text('POI 1'),
                             subtitle: Text('Subtitle 1'),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text('Card 2'),
+                            title: Text('POI 2'),
                             subtitle: Text('Subtitle 2'),
                           ),
                         ),
                         Card(
                           child: ListTile(
-                            title: Text('Card 3'),
+                            title: Text('POI 3'),
                             subtitle: Text('Subtitle 3'),
                           ),
                         ),
