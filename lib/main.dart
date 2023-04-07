@@ -291,6 +291,35 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 50.0,
+                      child: TextField(
+                        decoration: InputDecoration(hintText: 'Enter your note'),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle adding note functionality here
+                      },
+                      child: Text('Add Note'),
+                      style: ElevatedButton.styleFrom(primary: Colors.blue),
+                    ),
+                Card(
+                  child: ListTile(
+                    leading: Icon(Icons.home),
+                    title: Text('Listing Agency'),
+                    subtitle: Text('Courtney Henrey'),
+                    trailing: Icon(Icons.phone),
+                  ),
+                )
+
+                ],
+                ),
               )
             ],
           )
