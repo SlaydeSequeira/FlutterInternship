@@ -3,6 +3,78 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
+class MyWidget extends StatefulWidget {
+  @override
+  _MyWidgetState createState() => _MyWidgetState();
+}
+class _MyWidgetState extends State<MyWidget> {
+  final PageController _controller = PageController(initialPage: 0);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MediaQuery(
+        data: MediaQueryData(),
+        child: Scaffold(
+          body: Column(
+            children: [
+              Stack(
+                children: [
+                  SizedBox(
+                    height: 200,
+                    child: PageView(
+                      controller: _controller,
+                      children: [
+                        Image.asset(
+                          'assets/images/1.jpg',
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                        Image.asset(
+                          'assets/images/2.jpg',
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                        Image.asset(
+                          'assets/images/3.jpg',
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                        Image.asset(
+                          'assets/images/4.jpg',
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    top: 16,
+                    left: 16,
+                    child: Icon(
+                      Icons.arrow_back_ios_sharp,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                  Positioned(
+                    top: 16,
+                    right: 16,
+                    child: Icon(
+                      Icons.share,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 class MyApp extends StatelessWidget {
   Color D = Color(0xF2256B07);
   Color L = Color(0xAD47BD15);
@@ -146,28 +218,76 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                padding: EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Notify Similar Properties like this',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+              Card(
+                color: Colors.grey[200],
+                margin: EdgeInsets.all(10.0),
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Notify Similar Properties like this',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
                       ),
+                      Switch(
+                        value: true,
+                        onChanged: (bool value) {
+                          // do something when the switch is toggled
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              Card(
+            color: Colors.white60,
+          child:Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Property Details',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _PropertyDetailCard(
+                      icon: Icons.apartment,
+                      label: 'Apartment',
                     ),
-                    Switch(
-                      value: true,
-                      onChanged: (bool value) {
-                        // do something when the switch is toggled
-                      },
+                    _PropertyDetailCard(
+                      icon: Icons.king_bed,
+                      label: 'Bedroom',
+                    ),
+                    _PropertyDetailCard(
+                      icon: Icons.bathtub,
+                      label: 'Bathroom',
+                    ),
+                    _PropertyDetailCard(
+                      icon: Icons.local_parking,
+                      label: 'Parking',
                     ),
                   ],
                 ),
               ),
-              ExpansionPanelList.radio(
+            ],
+          ),
+          ),
+              Card(
+                color : Colors.white60,
+              child:ExpansionPanelList.radio(
                 initialOpenPanelValue: 1,
                 children: [
                   ExpansionPanelRadio(
@@ -209,19 +329,43 @@ class MyApp extends StatelessWidget {
                     },
                     body: Column(
                       children: [
+                    Text("Buy/Sell History for 2118 Thornridge Cir. Syracuse, Connecticut 35624",
+                      style: TextStyle(fontSize: 18),),
                     Card(
+                      margin: EdgeInsets.all(10.0),
                     child: Column(
                     children: [
                       Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                      Expanded(
+                      child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'List 08.05.2022',
                           style: TextStyle(
                             fontSize: 18,
+                          ),
+                        ),
+                        Text(
+                          "Listed for \$1,549,586",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          'MSI#: E5579076',
+                          style: TextStyle(
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
                         Container(
                           padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                           decoration: BoxDecoration(
@@ -236,92 +380,138 @@ class MyApp extends StatelessWidget {
                             ),
                           ),
                         ),
+                        Text(
+                          'Sold for \$1,549,586',
+                          textAlign: TextAlign.right,
+                        ),
                       ],
                     ),
-                    SizedBox(height: 8),
-                    ListTile(
-                      title: Text('MSI#: E5579076'),
-                      subtitle: Text('Sold for \$1,549,586'),
-                    ),
-                    ],
-                  ),
-        ),
-
-        Card(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'List 08.05.2022',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      'Sold',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
                   ),
                 ],
               ),
-              SizedBox(height: 8),
-              ListTile(
-                title: Text('MSI#: E5579076'),
-                subtitle: Text('Sold for \$1,549,586'),
-              ),
             ],
           ),
-        ),
-
-        Card(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'List 08.05.2022',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      'Sold',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+    ),
+          Card(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'List 08.05.2022',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            "Listed for \$1,549,586",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            'MSI#: E5579076',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8),
-              ListTile(
-                title: Text('MSI#: E5579076'),
-                subtitle: Text('Sold for \$1,549,586'),
-              ),
-            ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              'Sold',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Sold for \$1,549,586',
+                            textAlign: TextAlign.right,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
+          Card(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'List 08.05.2022',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            "Listed for \$1,549,586",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            'MSI#: E5579076',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              'Sold',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'Sold for \$1,549,586',
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
 
         ],
                     ),
@@ -388,16 +578,36 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
+              ),
               Container(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 50.0,
-                      child: TextField(
-                        decoration: InputDecoration(hintText: 'Enter your note'),
+                Container(
+                child: Column(
+                children: [
+                    Container(
+                    decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
+              ),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 50.0,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter your note',
+                            border: InputBorder.none,
+                          ),
+                        ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    SizedBox(width: 10.0),
                     ElevatedButton(
                       onPressed: () {
                         // Handle adding note functionality here
@@ -405,14 +615,30 @@ class MyApp extends StatelessWidget {
                       child: Text('Add Note'),
                       style: ElevatedButton.styleFrom(primary: Colors.blue),
                     ),
-                Card(
-                  child: ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text('Listing Agency'),
-                    subtitle: Text('Courtney Henrey'),
-                    trailing: Icon(Icons.phone),
-                  ),
-                )
+                  ],
+                ),
+              ),
+              SizedBox(height: 10.0),
+            ],
+          ),
+        ),
+        ],
+      ),
+    ),
+
+
+    Container(
+    child: Card(
+      color: Colors.white60,
+    child: ListTile(
+    leading: Icon(Icons.home),
+    title: Text('Listing Agency'),
+    subtitle: Text('Courtney Henrey'),
+    trailing: Icon(Icons.phone),
+    ),
+    ),
+    ),
+
 
                 ],
                 ),
@@ -425,4 +651,31 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+class _PropertyDetailCard extends StatelessWidget {
+  final IconData icon;
+  final String label;
 
+  const _PropertyDetailCard({
+    Key? key,
+    required this.icon,
+    required this.label,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(icon),
+            SizedBox(height: 8.0),
+            Text(label),
+          ],
+        ),
+      ),
+    );
+  }
+}
