@@ -3,78 +3,6 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
-class MyWidget extends StatefulWidget {
-  @override
-  _MyWidgetState createState() => _MyWidgetState();
-}
-class _MyWidgetState extends State<MyWidget> {
-  final PageController _controller = PageController(initialPage: 0);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MediaQuery(
-        data: MediaQueryData(),
-        child: Scaffold(
-          body: Column(
-            children: [
-              Stack(
-                children: [
-                  SizedBox(
-                    height: 200,
-                    child: PageView(
-                      controller: _controller,
-                      children: [
-                        Image.asset(
-                          'assets/images/1.jpg',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                        Image.asset(
-                          'assets/images/2.jpg',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                        Image.asset(
-                          'assets/images/3.jpg',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                        Image.asset(
-                          'assets/images/4.jpg',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 16,
-                    left: 16,
-                    child: Icon(
-                      Icons.arrow_back_ios_sharp,
-                      color: Colors.white,
-                      size: 24,
-                    ),
-                  ),
-                  Positioned(
-                    top: 16,
-                    right: 16,
-                    child: Icon(
-                      Icons.share,
-                      color: Colors.white,
-                      size: 24,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 class MyApp extends StatelessWidget {
   Color D = Color(0xF2256B07);
   Color L = Color(0xAD47BD15);
@@ -111,6 +39,15 @@ class MyApp extends StatelessWidget {
                       Icons.share,
                       color: Colors.white,
                       size: 24,
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 5,
+                    right: 20,
+                    child: Icon(
+                      Icons.more_horiz,
+                      color: Colors.white38,
+                      size: 40,
                     ),
                   ),
                 ],
@@ -330,7 +267,8 @@ class MyApp extends StatelessWidget {
                     body: Column(
                       children: [
                     Text("Buy/Sell History for 2118 Thornridge Cir. Syracuse, Connecticut 35624",
-                      style: TextStyle(fontSize: 18),),
+                      style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,),
                     Card(
                       margin: EdgeInsets.all(10.0),
                     child: Column(
