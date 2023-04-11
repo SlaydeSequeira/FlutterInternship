@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'example_function.dart';
 void main() {
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
   Color D = Color(0xF2256B07);
   Color L = Color(0xAD47BD15);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,41 +15,9 @@ class MyApp extends StatelessWidget {
     body: SingleChildScrollView(
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Image.asset(
-                    'assets/images/1.jpg',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  Positioned(
-                    top: 16,
-                    left: 16,
-                    child: Icon(
-                      Icons.arrow_back_ios_sharp,
-                      color: Colors.white,
-                      size: 24,
-                    ),
-                  ),
-                  Positioned(
-                    top: 16,
-                    right: 16,
-                    child: Icon(
-                      Icons.share,
-                      color: Colors.white,
-                      size: 24,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 5,
-                    right: 20,
-                    child: Icon(
-                      Icons.more_horiz,
-                      color: Colors.white38,
-                      size: 40,
-                    ),
-                  ),
-                ],
+              Container(
+                height: 250,
+              child:ExampleFunction(),
               ),
               SizedBox(height: 0), // Add blank space on top
               Container(
