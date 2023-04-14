@@ -5,7 +5,7 @@ void main() {
 }
 class MyApp extends StatelessWidget {
   Color D = Color(0xF2256B07);
-  Color L = Color(0xAD47BD15);
+  Color L = Color(0xE0A5DC90);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,17 +16,18 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 250,
+                height: 350,
               child:ExampleFunction(),
               ),
               SizedBox(height: 0), // Add blank space on top
               Container(
+                height: 30,
                 color: L, // Green background
                 child: Center(
                   child: Text(
                     "FOR SALE",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       color: D,
                     ),
                   ),
@@ -77,9 +78,20 @@ class MyApp extends StatelessWidget {
                   ),
                   Expanded(
                     flex: 1,
-                    child: Icon(
-                      Icons.shopping_cart,
-                      size: 30,
+                    child: Card(
+                      child:Container(
+                        padding: EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.white,
+                      ),
+                      child: Icon(
+
+                        Icons.shopping_cart_outlined,
+                        color: Colors.black,
+                        size: 24,
+                      ),
+                    ),
                     ),
                   ),
                 ],
@@ -201,224 +213,157 @@ class MyApp extends StatelessWidget {
                         title: Text('Key Facts'),
                       );
                     },
-                    body: Column(
-                      children: [
-                        Card(
-                          child: ListTile(
-                            title: Text('Key Fact 1'),
-                            subtitle: Text('Subtitle 1'),
+                    body: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200, // set the background color to grey
+                        borderRadius: BorderRadius.circular(8.0), // add some border radius to the corners
+                        boxShadow: [ // add a shadow to create some separation from the rest of the page
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 4.0,
+                            offset: Offset(0, 2),
                           ),
-                        ),
-                        Card(
-                          child: ListTile(
-                            title: Text('Key Fact 2'),
-                            subtitle: Text('Subtitle 2'),
+                        ],
+                      ),
+                      padding: EdgeInsets.all(8.0), // add some padding around the cards
+                      child: Column(
+                        children: [
+                          SizedBox(height: 8.0), // add some space at the top of the column
+                          Card(
+                            child: ListTile(
+                              title: Text('Key Fact 1'),
+                              subtitle: Text('Subtitle 1'),
+                            ),
                           ),
-                        ),
-                        Card(
-                          child: ListTile(
-                            title: Text('Key Fact 3'),
-                            subtitle: Text('Subtitle 3'),
+                          SizedBox(height: 8.0), // add some space between the cards
+                          Card(
+                            child: ListTile(
+                              title: Text('Key Fact 2'),
+                              subtitle: Text('Subtitle 2'),
+                            ),
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 8.0), // add some space between the cards
+                          Card(
+                            child: ListTile(
+                              title: Text('Key Fact 3'),
+                              subtitle: Text('Subtitle 3'),
+                            ),
+                          ),
+                          SizedBox(height: 8.0), // add some space at the bottom of the column
+                        ],
+                      ),
                     ),
                   ),
                   ExpansionPanelRadio(
                     value: 1,
+                    canTapOnHeader: true,
                     headerBuilder: (BuildContext context, bool isExpanded) {
                       return ListTile(
                         title: Text('Property History'),
                       );
                     },
-                    body: Column(
-                      children: [
-                    Text("Buy/Sell History for 2118 Thornridge Cir. Syracuse, Connecticut 35624",
-                      style: TextStyle(fontSize: 18),
-                    textAlign: TextAlign.center,),
-                    Card(
-                      margin: EdgeInsets.all(10.0),
-                    child: Column(
-                    children: [
-                      Row(
-                      children: [
-                      Expanded(
+                    body: Container(
+                      color: Colors.grey[200], // set the background color to gray
                       child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'List 08.05.2022',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        Text(
-                          "Listed for \$1,549,586",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        Text(
-                          'MSI#: E5579076',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Text(
-                            'Sold',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Sold for \$1,549,586',
-                          textAlign: TextAlign.right,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-    ),
-          Card(
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'List 08.05.2022',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                          Text(
-                            "Listed for \$1,549,586",
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          Text(
-                            'MSI#: E5579076',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              'Sold',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              "Buy/Sell History for 2118 Thornridge Cir. Syracuse, Connecticut 35624",
+                              style: TextStyle(fontSize: 18),
+                              textAlign: TextAlign.center,
                             ),
                           ),
-                          Text(
-                            'Sold for \$1,549,586',
-                            textAlign: TextAlign.right,
+                          SizedBox(height: 10), // add some space between the title and the cards
+                          Card(
+                            margin: EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  title: Text('List 08.05.2022'),
+                                  subtitle: Text('Listed for \$1,549,586\nMSI#: E5579076'),
+                                ),
+                                ListTile(
+                                  trailing: Container(
+                                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Text(
+                                      'Sold',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  title: Text('Sold for \$1,549,586'),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10), // add some space between the cards
+                          Card(
+                            margin: EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  title: Text('List 08.05.2022'),
+                                  subtitle: Text('Listed for \$1,549,586\nMSI#: E5579076'),
+                                ),
+                                ListTile(
+                                  trailing: Container(
+                                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Text(
+                                      'Sold',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  title: Text('Sold for \$1,549,586'),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10), // add some space between the cards
+                          Card(
+                            margin: EdgeInsets.all(10.0),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  title: Text('List 08.05.2022'),
+                                  subtitle: Text('Listed for \$1,549,586\nMSI#: E5579076'),
+                                ),
+                                ListTile(
+                                  trailing: Container(
+                                    padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child:
+                                    Text(
+                                      'Sold',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  title: Text('Sold for \$1,549,586'),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'List 08.05.2022',
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                          ),
-                          Text(
-                            "Listed for \$1,549,586",
-                            style: TextStyle(fontSize: 18),
-                          ),
-                          Text(
-                            'MSI#: E5579076',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Text(
-                              'Sold',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Sold for \$1,549,586',
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-        ],
                     ),
                   ),
                   ExpansionPanelRadio(

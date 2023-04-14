@@ -4,7 +4,6 @@ class ExampleFunction extends StatefulWidget {
   @override
   _ExampleFunctionState createState() => _ExampleFunctionState();
 }
-
 class _ExampleFunctionState extends State<ExampleFunction> {
   late PageController _pageController;
   int _currentPage = 0;
@@ -46,19 +45,35 @@ class _ExampleFunctionState extends State<ExampleFunction> {
         Positioned(
           top: 16,
           left: 16,
-          child: Icon(
-            Icons.arrow_back_ios_sharp,
-            color: Colors.white,
-            size: 24,
+          child:Card(
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              color: Colors.white,
+            ),
+            child: Icon(
+              Icons.arrow_back_ios_sharp,
+              color: Colors.black,
+              size: 24,
+            ),
+            ),
           ),
         ),
         Positioned(
           top: 16,
           right: 16,
-          child: Icon(
-            Icons.share,
-            color: Colors.white,
-            size: 24,
+          child: Card(
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              color: Colors.white,
+            ),
+            child: Icon(
+              Icons.share,
+              color: Colors.black,
+              size: 24,
+            ),
+          ),
           ),
         ),
         Positioned(
@@ -77,23 +92,21 @@ class _ExampleFunctionState extends State<ExampleFunction> {
         ),
       ],
     );
-
   }
 
   Widget _buildDot(int index, double size) {
     Color color = _currentPage == index ? Colors.blue : Colors.grey;
     return Align(
       alignment: Alignment.bottomRight,
-    child: Container(
-      width: size,
-      height: size,
-      margin: EdgeInsets.symmetric(horizontal: 5.0),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
+      child: Container(
+        width: size,
+        height: size,
+        margin: EdgeInsets.symmetric(horizontal: 5.0),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color,
+        ),
       ),
-    ),
-        );
+    );
   }
-
 }
