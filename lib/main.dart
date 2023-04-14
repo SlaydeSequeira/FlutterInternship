@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
               child:Row(
                 children: [
                   Expanded(
-                    flex: 2,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -214,6 +213,9 @@ class MyApp extends StatelessWidget {
                     headerBuilder: (BuildContext context, bool isExpanded) {
                       return ListTile(
                         title: Text('Key Facts'),
+                        leading: Icon(Icons.key),
+                        tileColor: isExpanded ? Colors.blue : null, // conditionally set tileColor
+                        selectedTileColor: Colors.blue,
                       );
                     },
                     body: Container(
@@ -263,6 +265,7 @@ class MyApp extends StatelessWidget {
                     headerBuilder: (BuildContext context, bool isExpanded) {
                       return ListTile(
                         title: Text('Property History'),
+                        leading: Icon(Icons.history),
                       );
                     },
                     body: Container(
@@ -436,6 +439,7 @@ class MyApp extends StatelessWidget {
                     headerBuilder: (BuildContext context, bool isExpanded) {
                       return ListTile(
                         title: Text('Demographics'),
+                        leading: Icon(Icons.circle_outlined),
                       );
                     },
                     body: Column(
@@ -466,6 +470,7 @@ class MyApp extends StatelessWidget {
                     headerBuilder: (BuildContext context, bool isExpanded) {
                       return ListTile(
                         title: Text('Point of Interest'),
+                        leading: Icon(Icons.edit_location),
                       );
                     },
                     body: Column(
