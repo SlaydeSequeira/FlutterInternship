@@ -46,32 +46,38 @@ class _ExampleFunctionState extends State<ExampleFunction> {
           top: 16,
           left: 16,
           child:Card(
+            elevation: 10,
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              color: Colors.white,
+              color: Colors.white60,
+              borderRadius: BorderRadius.circular(10.0), // set the border radius to 10
             ),
             child: Icon(
               Icons.arrow_back_ios_sharp,
               color: Colors.black,
-              size: 24,
+              size: 35,
             ),
-            ),
+          ),
+
           ),
         ),
         Positioned(
           top: 16,
           right: 16,
           child: Card(
+            elevation: 10,
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              color: Colors.white,
+              color: Colors.white60,
+              borderRadius: BorderRadius.circular(10.0), // set the border radius to 10
+
             ),
             child: Icon(
               Icons.share,
               color: Colors.black,
-              size: 24,
+              size: 35,
             ),
           ),
           ),

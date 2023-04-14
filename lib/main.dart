@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
               ),
               SizedBox(height: 0), // Add blank space on top
               Container(
-                margin: EdgeInsets.fromLTRB(10, 10, 10,10),
                 height: 30,
                 color: L, // Green background
                 child: Center(
@@ -79,16 +78,14 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 1,
                     child: Card(
                       child:Container(
-                        padding: EdgeInsets.all(16.0),
+                        alignment: Alignment.centerRight,
+                        padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
                         color: Colors.white,
                       ),
                       child: Icon(
-
                         Icons.shopping_cart_outlined,
                         color: Colors.black,
                         size: 24,
@@ -280,9 +277,9 @@ class MyApp extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          SizedBox(height: 10), // add some space between the title and the cards
+                          SizedBox(height: 2), // add some space between the title and the cards
                       Card(
-                        margin: EdgeInsets.all(10.0),
+                        margin: EdgeInsets.all(5.0),
                         child: Column(
                           children: [
                             ListTile(
@@ -330,9 +327,9 @@ class MyApp extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 10), // add some space between the cards
+                      SizedBox(height: 2), // add some space between the cards
                           Card(
-                            margin: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.all(5.0),
                             child: Column(
                               children: [
                                 ListTile(
@@ -376,13 +373,13 @@ class MyApp extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 8),
+                                SizedBox(height: 2),
                               ],
                             ),
                           ),
                           SizedBox(height: 10), // add some space between the cards
                           Card(
-                            margin: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.all(5.0),
                             child: Column(
                               children: [
                                 ListTile(
@@ -512,6 +509,9 @@ class MyApp extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0), // make the edges more circular
+                ),
                 child: Row(
                   children: [
                     Expanded(
@@ -536,6 +536,7 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
+
               SizedBox(height: 10.0),
             ],
           ),
