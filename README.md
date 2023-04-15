@@ -12,4 +12,4 @@ To run the project, execute the following command in the terminal
 
 - flutter run --no-sound-null-safety. 
 
-I have also added 2 images and a video named whatsapp.html and 2 jpgs
+I have also added 2 images of the app 
