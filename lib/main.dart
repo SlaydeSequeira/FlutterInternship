@@ -34,66 +34,62 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 0), // Add spacing between text and buttons
-              Container( margin: EdgeInsets.fromLTRB(10, 10, 10,10),
-              child:Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "MLS#:E5579076",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Listed for: ",
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 400, // Set a fixed width
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "MLS#:E5579076",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
-                            Text(
-                              "\$1,549,586",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "2118 Thornidge Cir. Syraacuse, Connecticut 35624",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Card(
-                      child:Container(
-                        alignment: Alignment.centerRight,
-                        padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
+                          Row(
+                            children: [
+                              Text(
+                                "Listed for: ",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                "\$1,549,586",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "2118 Thornidge Cir. Syraacuse, Connecticut 35624",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      width: 40,
+                      height: 40,
                       child: Icon(
                         Icons.shopping_cart_outlined,
                         color: Colors.black,
                         size: 24,
                       ),
                     ),
-                    ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
               ),
               SizedBox(height: 20), // Add spacing between text and buttons
               Container(
@@ -136,32 +132,44 @@ class MyApp extends StatelessWidget {
                 ],
               ),
               ),
-              Card(
-                color: Colors.grey[200],
-                margin: EdgeInsets.all(10.0),
-                child: Container(
-                  padding: EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Notify Similar Properties like this',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      Switch(
-                        value: true,
-                        onChanged: (bool value) {
-                          // do something when the switch is toggled
-                        },
-                      ),
-                    ],
+      Material(
+        elevation: 2,
+        child: Card(
+          color: Colors.grey[300],
+          margin: EdgeInsets.all(10.0),
+          child: Container(
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    'Notify Similar Properties like this',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
                   ),
                 ),
-              ),
-
+                SizedBox(
+                  width: 50.0,
+                  height: 32.0,
+                  child: Transform.scale(
+                    scale: 0.8, // Reduce the size of the toggle circle
+                    child: Switch(
+                      value: true,
+                      onChanged: (bool value) {
+                        // do something when the switch is toggled
+                      },
+                      activeColor: Colors.blue,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
               Card(
             color: Colors.white60,
           child:Column(
