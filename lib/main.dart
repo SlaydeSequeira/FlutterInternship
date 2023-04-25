@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      width: 400, // Set a fixed width
+                      width: 350, // Set a fixed width
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                           Text(
                             "2118 Thornidge Cir. Syraacuse, Connecticut 35624",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -217,13 +217,16 @@ class MyApp extends StatelessWidget {
                 initialOpenPanelValue: 1,
                 children: [
                   ExpansionPanelRadio(
+                    backgroundColor: Colors.white,
                     value: 0,
                     headerBuilder: (BuildContext context, bool isExpanded) {
-                      return ListTile(
-                        title: Text('Key Facts'),
-                        leading: Icon(Icons.key),
-                        tileColor: isExpanded ? Colors.blue : null, // conditionally set tileColor
-                        selectedTileColor: Colors.blue,
+                      return Container(
+                        color: isExpanded ? Colors.blue : null, // conditionally set color of container
+                        child: ListTile(
+                          title: Text('Key Facts'),
+                          leading: Icon(Icons.key),
+                          selectedTileColor: Colors.blue,
+                        ),
                       );
                     },
                     body: Container(
@@ -267,6 +270,7 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
+
                   ExpansionPanelRadio(
                     value: 1,
                     canTapOnHeader: true,
