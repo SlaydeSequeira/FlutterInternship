@@ -11,3 +11,5 @@ Next open the project folder in any IDE such as Android Studio Or VS Code
 To run the project, execute the following command in the terminal
 
 - flutter run --no-sound-null-safety. 
+
+I have also added 2 images of the app 
